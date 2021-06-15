@@ -5,18 +5,21 @@
       apt: name=nginx state=latest
       become: yes
       tags: install
+
     - name: start nginx service
       service:
           name: nginx
           state: started
       become: yes
       tags: install
+
     - name: copy the nginx config file and restart nginx service
       copy:
         src: /var/lib/jenkins/workspace/nginx-deployment/ansible-nginx/files/static_site.cfg
         dest: /etc/nginx/sites-available/static_site.cfg
       become: yes
       tags: setup
+
     - name: create symlink
       file:
         src: /etc/nginx/sites-available/static_site.cfg
@@ -24,11 +27,13 @@
         state: link
       become: yes
       tags: setup
+
     - name: copy the content of the web site
       copy:
         src: /var/lib/jenkins/workspace/nginx-deployment/ansible-nginx/files/static-site-src/
         dest: /home/foo/static-site
       tags: setup
+
     - name: restart nginx service
       service:
         name: nginx
