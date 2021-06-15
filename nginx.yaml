@@ -29,7 +29,7 @@
         src: /var/lib/jenkins/workspace/nginx-deployment/ansible-nginx/files/static-site-src/
         dest: /home/foo/static-site
       tags: setup
-    - name: restart nginx
+    - name: restart nginx service
       service:
         name: nginx
         state: restarted
