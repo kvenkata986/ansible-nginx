@@ -34,4 +34,4 @@
         name: nginx
         state: restarted
       become: yes
-      setup: tags
+      tags: setup
