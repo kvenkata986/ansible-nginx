@@ -11,7 +11,7 @@
           state: started
       become: yes
       tags: install
-    - name: copy the nginx config file and restart nginx
+    - name: copy the nginx config file and restart nginx service
       copy:
         src: /var/lib/jenkins/workspace/nginx-deployment/ansible-nginx/files/static_site.cfg
         dest: /etc/nginx/sites-available/static_site.cfg
